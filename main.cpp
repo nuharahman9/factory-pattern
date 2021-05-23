@@ -4,7 +4,7 @@
 
 
 int main(int argv, char** argc) {
-	Factory* factory = new Parse();
+	Factory* factory = new Factory();
 	Base* calc = factory->parse(argc, argv);
 	if (calc) {
 		std::cout << calc->stringify() << " = " << calc->evaluate() << std::endl;
