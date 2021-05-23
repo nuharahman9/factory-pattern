@@ -13,6 +13,9 @@ public:
 	value1=left;
 	value2=right;
 }
+	~Operator() {
+	delete  value1; 
+	delete value2;	}
 	virtual double evaluate()=0;
 	virtual std::string stringify()=0;	
 };
