@@ -18,6 +18,7 @@ class Factory{
   public:
     Base* parse(char** input, int length){
 	Base* left = new Op(atof(input[1]));
+	if (length < 4) { return nullptr; }
 	for(int i = 2;i<length-1;i++){
 		if(input[i][0]=='+'){   
 		   left = new Add(left, new Op(atof(input[i+1])));

@@ -28,6 +28,27 @@ TEST(FactoryTest, Test) {
         EXPECT_EQ(conversion->evaluate(), 1.000);
 }
 
+TEST(FactoryTest, invalidPtr) {
+        char* test_val[4];
+        test_val[0]="T";
+        test_val[1]="2";
+        test_val[2]="?";
+	test_val[3] = "4"; 
+        Factory* factory = new Factory();
+        Base* conversion = factory->parse(test_val, 4);
+        EXPECT_EQ(conversion, nullptr);
+}
+TEST(FactoryTest, minimumLength) {
+        char* test_val[3];
+        test_val[0]="T";
+        test_val[1]="2";
+        test_val[2]="+";
+        Factory* factory = new Factory();
+        Base* conversion = factory->parse(test_val, 3);
+        EXPECT_EQ(conversion, nullptr);
+}
+
+
 TEST(FactoryTest, Test2) {
         char* test_val[8];
         test_val[0]="T";
